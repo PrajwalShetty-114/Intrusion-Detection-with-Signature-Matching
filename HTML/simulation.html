@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDS Project - Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body class="simulation-page">
+
+<header>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">IDS Project</a>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aim.html">Aim</a></li>
+                    <li><a href="theory.html">Theory</a></li>
+                    <li><a href="objectives.html">Objectives</a></li>
+                    <li><a href="procedure.html">Procedure</a></li>
+                    <li><a href="simulation.html">Simulation</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger-btn" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+    <div class="simulation-container">
+
+        <div class="analyzer-column">
+            <div id="analyzer-card" class="content-card">
+                <h2>Traffic Analyzer 🚦</h2>
+
+                <div class="scan-animation">
+                    <lottie-player 
+                        src="./Analytical Thinking Illustration.json" 
+                        background="transparent" 
+                        speed="1" 
+                        loop 
+                        autoplay>
+                    </lottie-player>
+                </div>
+
+                <label for="traffic-input">Enter Simulated Network Data:</label>
+                <textarea id="traffic-input" rows="5" placeholder="Type your data here..."></textarea>
+                <button id="check-button">Analyze Traffic</button>
+            </div>
+        </div>
+
+        <div class="info-column">
+
+            <div id="status-card" class="content-card">
+                <h2>System Status 🖥️</h2>
+                <div id="status-alert" class="status-success">
+                    <p>Status: All Clear</p>
+                </div>
+            </div>
+
+            <div id="signature-card" class="content-card">
+                <h2>Known Signatures 🧐</h2>
+                <ul id="signature-list">
+                    </ul>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

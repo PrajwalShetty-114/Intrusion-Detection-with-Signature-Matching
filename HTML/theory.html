@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDS Project - Theory</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+
+<body class="theory-page">
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">IDS Project</a>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aim.html">Aim</a></li>
+                    <li><a href="theory.html">Theory</a></li>
+                    <li><a href="objectives.html">Objectives</a></li>
+                    <li><a href="procedure.html">Procedure</a></li>
+                    <li><a href="simulation.html">Simulation</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger-btn" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+   <main class="content-card">
+    <h1>Theoretical Concepts</h1>
+
+    <div class="theory-section">
+        <div class="theory-icon">
+            <lottie-player 
+                src="./Notifications.json" 
+                background="transparent" 
+                speed="1" 
+                loop 
+                autoplay>
+            </lottie-player>
+        </div>
+        <div class="theory-text">
+            <h2>What is an Intrusion Detection System (IDS)?</h2>
+            <p>
+                Think of an IDS as a <strong>burglar alarm for a computer network</strong>. 
+                Its one and only job is to watch all the data (network traffic) moving in and out. 
+                When it spots suspicious activity, it triggers an alert to notify the administrator.
+            </p>
+        </div>
+    </div>
+
+    <div class="theory-section">
+        <div class="theory-icon">
+            <lottie-player 
+                src="./Fingerprint biometric success blue.json" 
+                background="transparent" 
+                speed="1" 
+                loop 
+                autoplay>
+            </lottie-player>
+        </div>
+        <div class="theory-text">
+            <h2>What is a "Signature"?</h2>
+            <p>
+                A "signature" is a <strong>unique pattern or "fingerprint" of a known attack</strong>. 
+                Think of it as a "wanted poster" for a specific piece of malware. This pattern could be 
+                a specific line of code, a sequence of commands, or any unique identifier.
+            </p>
+        </div>
+    </div>
+
+    <div class="theory-section">
+        <div class="theory-icon">
+            <lottie-player 
+                src="./Loading Lottie animation.json" 
+                background="transparent" 
+                speed="1" 
+                loop 
+                autoplay>
+            </lottie-player>
+        </div>
+        <div class="theory-text">
+            <h2>How Does Signature Matching Work?</h2>
+            <p>
+                This is the process of comparing network traffic against the database of "wanted posters" (signatures).
+                The IDS inspects data and if it finds a match, it triggers an alert. This method is very 
+                fast and effective at catching <strong>known threats</strong>.
+            </p>
+        </div>
+    </div>
+</main>
+    <script src="script.js"></script>
+</body>
+
+</html>

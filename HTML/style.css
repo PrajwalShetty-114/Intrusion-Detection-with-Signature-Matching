@@ -1,0 +1,886 @@
+/* --- 1. Global Styles & Font Import (V2.2) --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+
+:root {
+    --bg-color: #F3F4F6;
+    --card-color: #FFFFFF;
+    --text-color: #1F2937;
+    --text-light: #6B7280;
+    --primary: #4F46E5;
+    --primary-dark: #4338CA;
+    --border-light: #E5E7EB;
+    
+    --status-success-bg: #F0FDF4;
+    --status-success-text: #166534;
+    --status-success-border: #86EFAC;
+    
+    --status-danger-bg: #FEF2F2;
+    --status-danger-text: #B91C1C;
+    --status-danger-border: #FCA5A5;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+/* --- 2. Navigation Bar (V2.2 - Frosted Glass) --- */
+
+header {
+    /* "Frosted Glass" Effect */
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* The magic blur */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 2rem;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-color);
+    text-decoration: none;
+}
+.nav-logo:hover { color: var(--primary); }
+
+.nav-menu ul {
+    list-style-type: none;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+}
+
+.nav-menu ul li a:hover {
+    background-color: var(--bg-color);
+    color: var(--primary);
+}
+
+.nav-menu ul li a.active {
+    background-color: var(--primary);
+    color: #FFFFFF;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+}
+
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 100;
+}
+.hamburger-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    border-radius: 3px;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- 3. Main Content Layout (V2.2 - Animated) --- */
+
+main {
+    max-width: 900px;
+    margin: 2.5rem auto;
+    padding: 2.5rem;
+    background-color: var(--card-color);
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+    /* Page Load Animation */
+    animation: fadeInSlideUp 0.6s ease-out;
+}
+
+/* --- 4. Home Page "Hero" Section (V2.2 - Two Column) --- */
+
+/* Remove default card styles for home page */
+body.home main {
+    background: none;
+    box-shadow: none;
+    max-width: 1000px; /* Make hero wider */
+    padding: 0 1rem; /* Adjust padding */
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    min-height: 70vh; /* Make the hero section tall */
+}
+
+.hero-text {
+    flex-basis: 50%; /* Takes up 50% of the width */
+}
+
+.hero-title {
+    font-size: 3.25rem; /* Even bigger */
+    font-weight: 800;
+    color: var(--text-color);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    border-bottom: none; /* Remove border from H1 on this page */
+    padding-bottom: 0;
+    background: linear-gradient(45deg, var(--primary), #8B5CF6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+.gradient-button {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--primary), #8B5CF6);
+    color: #FFFFFF;
+    border: none;
+    padding: 0.8rem 2.5rem; /* Bigger button */
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    border-radius: 9999px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+}
+.gradient-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
+}
+
+.hero-image {
+    flex-basis: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-image lottie-player {
+    width: 100%;
+    min-height: 350px;
+    /* background-color: #6B7280; */
+    /* color: gray; */
+    border-radius: 20px;
+}
+/* This adds the actual SVG illustration */
+/* .hero-image::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    This is a royalty-free SVG illustration from unDraw 
+    background-image: url('https://storage.googleapis.com/gemini-prod-ui-workspace-v1-1/u/0/files/9b335359-ba16-43b3-80f4-5d41c19b0687');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+} */
+
+
+/* --- 5. General Element Styling (V2.2) --- */
+/* (Unchanged from V2.1) */
+
+h1, h2 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+h1 {
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 0.5rem;
+}
+body:not(.home) main {
+    text-align: left;
+}
+p {
+    margin-bottom: 1.5rem;
+    color: #374151;
+    line-height: 1.8;
+}
+ul, ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+li { margin-bottom: 0.75rem; }
+code {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-light);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-family: 'Menlo', 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: var(--primary);
+}
+
+/* --- 6. Simulation Page Specifics (V2.2) --- */
+/* (Unchanged from V2.1) */
+
+#signature-card, #analyzer-card, #status-card {
+    background-color: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    /* We'll add hover animations later */
+}
+#signature-card h2, #analyzer-card h2, #status-card h2 {
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 0.75rem;
+    color: var(--text-color);
+}
+#signature-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+#signature-list li {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-light);
+    color: var(--text-light);
+    padding: 0.4rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+#traffic-input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s ease;
+}
+#traffic-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+#check-button {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--primary), #8B5CF6);
+    color: #FFFFFF;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+}
+#check-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(79, 70, 229, 0.3);
+}
+#status-alert {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+.status-success {
+    background-color: var(--status-success-bg);
+    border-color: var(--status-success-border);
+    color: var(--status-success-text);
+}
+.status-danger {
+    background-color: var(--status-danger-bg);
+    border-color: var(--status-danger-border);
+    color: var(--status-danger-text);
+    animation: shake 0.5s;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
+
+/* --- 7. Animation Keyframes --- */
+
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* --- 8. Responsiveness --- */
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 1rem 1.5rem;
+    }
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: var(--card-color);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s ease-in-out;
+        z-index: 99;
+    }
+    .nav-menu.is-active { right: 0; }
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    .nav-menu ul li a { font-size: 1.25rem; }
+    .hamburger-btn { display: block; }
+    .hamburger-btn.is-active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger-btn.is-active span:nth-child(2) { opacity: 0; }
+    .hamburger-btn.is-active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    
+    /* Mobile Content */
+    main {
+        margin: 1.5rem 1rem;
+        padding: 1.5rem;
+        /* Re-enable card styles for non-home pages on mobile */
+        background-color: var(--card-color);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    body.home main {
+        background: none;
+        box-shadow: none;
+    }
+
+    /* Stack hero columns on mobile */
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+        min-height: auto;
+        padding: 2rem 0;
+    }
+    .hero-text {
+        order: 2; /* Text goes below image */
+    }
+    .hero-image {
+        order: 1; /* Image goes on top */
+        flex-basis: auto;
+        width: 80%;
+    }
+    .hero-title {
+        font-size: 2.25rem;
+    }
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    #check-button, .gradient-button {
+        width: 100%;
+    }
+}
+
+/* --- 9. Animated Content Cards (for Aim, Theory, etc.) --- */
+
+.content-card {
+    /* Base style for our "liftable" cards */
+    transition: all 0.3s ease-in-out;
+}
+
+.content-card:hover {
+    /* The "Lift on Hover" effect */
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+
+/* --- 11. Objectives Page Specifics --- */
+
+.objectives-page main h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+}
+
+.objectives-list {
+    list-style-type: none; /* Hide the default black bullet */
+    padding-left: 0; /* Remove default padding */
+}
+
+.objectives-list li {
+    position: relative; /* Needed to place our custom icon */
+    padding-left: 2.5rem; /* Make space for the icon */
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem; /* Space out the list items */
+}
+
+/* This is the magic part: the custom icon */
+.objectives-list li::before {
+    content: '🎯'; /* You can change this to '✅' or '→' */
+    position: absolute;
+    left: 0;
+    top: -3px;
+    
+    font-size: 1.5rem;
+    color: var(--primary); /* Our indigo accent color */
+    
+    /* A little flair: a bg for the icon */
+    /*
+    content: '✓'; 
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--primary);
+    background-color: #EEF2FF; 
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    left: 0;
+    top: 0;
+    */
+}
+
+/* --- 11. Objectives Page Specifics (V2.2 - "Awesome" Grid) --- */
+
+.objectives-page main h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+}
+
+/* On this page, stop the MAIN card from lifting,
+   since the inner cards will lift instead. */
+.objectives-page main.content-card:hover {
+    transform: none;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* This is our new grid container */
+.objectives-list {
+    list-style-type: none; /* Remove bullets */
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr; /* 1 column by default */
+    gap: 1.5rem; /* Space between the cards */
+}
+
+/* This is the new "Objective Card" style */
+.objectives-list li {
+    background-color: #F9FAFB; /* A very light grey, almost white */
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 1.5rem;
+    padding-left: 4.5rem; /* Make space for the icon */
+    position: relative;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    
+    /* "Lift on Hover" for EACH card */
+    transition: all 0.3s ease;
+
+    /* Staggered load animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.5s ease-out forwards;
+}
+
+/* The "Awesome" Icon */
+.objectives-list li::before {
+    content: '🎯';
+    position: absolute;
+    left: 1.5rem;
+    top: 1.5rem; /* Vertically center */
+    
+    font-size: 2rem; /* Much bigger icon */
+    color: var(--primary);
+    
+    /* Optional: Circle background */
+    /*
+    display: grid;
+    place-items: center;
+    background-color: #EEF2FF;
+    color: var(--primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    top: 1.5rem;
+    */
+}
+
+.objectives-list li:hover {
+    /* The "lift" effect */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+    border-color: var(--primary); /* Highlight with indigo */
+}
+
+/* Staggered Animation Delay */
+/* This makes them fade in one by one */
+.objectives-list li:nth-child(1) { animation-delay: 0.1s; }
+.objectives-list li:nth-child(2) { animation-delay: 0.2s; }
+.objectives-list li:nth-child(3) { animation-delay: 0.3s; }
+.objectives-list li:nth-child(4) { animation-delay: 0.4s; }
+.objectives-list li:nth-child(5) { animation-delay: 0.5s; }
+
+
+/* On wider screens, move to a 2-column grid */
+@media (min-width: 768px) {
+    .objectives-list {
+        grid-template-columns: 1fr 1fr; /* 2 columns */
+    }
+}
+
+/* --- 12. Theory Page Specifics --- */
+
+.theory-page main h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2.5rem; /* More space */
+    text-align: center;
+}
+
+/* This is the container for our new feature card */
+.theory-section {
+    display: flex;
+    align-items: flex-start; /* Aligns icon and text */
+    gap: 2rem; /* Space between icon and text */
+    margin-bottom: 2.5rem; /* Space between sections */
+    
+    /* Staggered load animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.5s ease-out forwards;
+}
+
+.theory-icon {
+    background-color: #EEF2FF; /* Light indigo background */
+    border-radius: 12px;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0; /* Prevents icon from shrinking */
+    padding: 5px; /* A little space around the animation */
+}
+
+.theory-icon lottie-player {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.theory-text h2 {
+    border-bottom: none; /* Remove default h2 border */
+    padding-bottom: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.theory-text p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+/* Staggered Animation Delay */
+.theory-section:nth-child(2) { animation-delay: 0.1s; }
+.theory-section:nth-child(3) { animation-delay: 0.2s; }
+.theory-section:nth-child(4) { animation-delay: 0.3s; }
+
+/* Responsive: On mobile, stack the icon on top */
+@media (max-width: 600px) {
+    .theory-section {
+        flex-direction: column; /* Stack vertically */
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+    }
+}
+
+/* --- 13. Procedure Page Specifics --- */
+
+.procedure-page main h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+/* This creates our "counter" */
+.procedure-list {
+    counter-reset: step-counter;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.step-card {
+    position: relative;
+    background-color: #F9FAFB;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 1.5rem;
+    padding-left: 6rem; /* Make room for the big number */
+    min-height: 80px; /* Give it some height */
+    display: flex;
+    align-items: center;
+
+    /* "Lift on Hover" */
+    transition: all 0.3s ease;
+
+    /* Staggered load animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.5s ease-out forwards;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+    border-color: var(--primary);
+}
+
+/* This is the magic: the custom number */
+.step-card::before {
+    counter-increment: step-counter; /* Add 1 */
+    content: counter(step-counter, decimal-leading-zero); /* Show as "01", "02" */
+    
+    position: absolute;
+    left: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    
+    /* Optional: Style it as a circle */
+    background-color: #EEF2FF;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    line-height: 1;
+}
+
+.step-content {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.step-content a {
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+}
+.step-content a:hover {
+    text-decoration: underline;
+}
+
+/* Staggered Animation Delay */
+.step-card:nth-child(1) { animation-delay: 0.1s; }
+.step-card:nth-child(2) { animation-delay: 0.2s; }
+.step-card:nth-child(3) { animation-delay: 0.3s; }
+.step-card:nth-child(4) { animation-delay: 0.4s; }
+.step-card:nth-child(5) { animation-delay: 0.5s; }
+.step-card:nth-child(6) { animation-delay: 0.6s; }
+.step-card:nth-child(7) { animation-delay: 0.7s; }
+
+/* --- 14. Simulation Page Specifics (Dashboard) --- */
+
+/* Remove the single-card style from the main element */
+.simulation-page main {
+    max-width: 1000px; /* Make it wider */
+    background: none;
+    box-shadow: none;
+    padding: 0 1rem;
+    animation: none; /* We'll animate the columns instead */
+}
+
+/* Our new 2-column grid layout */
+.simulation-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Analyzer is 2/3, Info is 1/3 */
+    gap: 2rem;
+}
+
+/* Base styles for the columns */
+.analyzer-column,
+.info-column {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInSlideUp 0.5s ease-out forwards;
+}
+
+/* Animation delay for the 2nd column */
+.info-column {
+    animation-delay: 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Space between status and signature cards */
+}
+
+/* Make all cards on this page use the "lift" */
+.simulation-page .content-card {
+    transition: all 0.3s ease;
+}
+.simulation-page .content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Style the new animation container */
+.scan-animation {
+    width: 100%;
+    max-width: 250px;
+    margin: 0.5rem auto 1.5rem;
+    min-height: 200px; 
+}
+
+.scan-animation lottie-player {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Status card gets a pulse to draw the eye */
+#status-card {
+    animation: pulse-glow 2s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+    0% { box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); }
+    50% { box-shadow: 0 6px 15px rgba(79, 70, 229, 0.1); }
+    100% { box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); }
+}
+
+/* On mobile, stack the columns */
+@media (max-width: 768px) {
+    .simulation-container {
+        grid-template-columns: 1fr; /* Single column */
+    }
+}
+
+/* --- 10. Aim Page Specifics (V2.2 - Two Column) --- */
+
+/* Remove default card styles for this page */
+.aim-page main {
+    background: none;
+    box-shadow: none;
+    max-width: 1000px; /* Make it wider */
+    padding: 0 1rem;
+    animation: fadeInSlideUp 0.6s ease-out; /* Add the load animation */
+}
+
+/* On this page, stop the MAIN card from lifting */
+.aim-page main.content-card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.aim-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    min-height: 60vh; /* Make the section tall */
+}
+
+.aim-text {
+    flex-basis: 55%; /* Text takes up 55% */
+}
+
+.aim-text h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--primary); /* Keep the H1 border */
+    padding-bottom: 0.5rem;
+}
+
+.aim-text p {
+    /* "Lead paragraph" style */
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.aim-image {
+    flex-basis: 40%; /* Animation takes 40% */
+}
+
+.aim-image lottie-player {
+    width: 100%;
+    min-height: 350px;
+}
+
+/* Responsive: Stack columns on mobile */
+@media (max-width: 768px) {
+    .aim-container {
+        flex-direction: column;
+        text-align: center;
+        min-height: auto;
+        padding: 2rem 0;
+    }
+    .aim-text {
+        order: 2; /* Text goes below */
+    }
+    .aim-image {
+        order: 1; /* Animation on top */
+        width: 70%;
+    }
+}

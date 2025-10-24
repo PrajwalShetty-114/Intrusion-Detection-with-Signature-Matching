@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDS Project - Procedure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">IDS Project</a>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aim.html">Aim</a></li>
+                    <li><a href="theory.html">Theory</a></li>
+                    <li><a href="objectives.html">Objectives</a></li>
+                    <li><a href="procedure.html">Procedure</a></li>
+                    <li><a href="simulation.html">Simulation</a></li>
+                </ul>
+            </nav>
+
+            <button class="hamburger-btn" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="content-card">
+       <h1>How to Use the Simulation</h1>
+
+    <div class="procedure-list">
+        <div class="step-card">
+            <div class="step-content">
+                Navigate to the <strong><a href="simulation.html">Simulation</a></strong> page.
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-content">
+                Observe the "Known Signatures" card to see what the IDS is looking for (e.g., <code>virus</code>).
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-content">
+                In the "Simulated Network Traffic" input box, type any text.
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-content">
+                <strong>To see a detection:</strong> Type a sentence that includes one of the signatures (e.g., "this is a <code>virus</code> packet").
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-content">
+                <strong>To see normal traffic:</strong> Type a sentence without any signatures (e.g., "this is a normal email").
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-content">
+                Click the "Analyze Traffic" button.
+            </div>
+        </div>
+
+        <div class="step-card">
+            <div class="step-content">
+                Observe the "System Status" box to see if the traffic was marked as "All Clear" or "Intrusion Detected."
+            </div>
+        </div>
+    </div>
+    </main>
+<script src="script.js"></script>
+</body>
+</html>
